@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vending Machine</title>
+    <link rel="stylesheet" href="vending.css">
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div class="machineContainer radius25 containerBorder">
+
+            <div class="infoContainer radius25 containerBorder">Info Display</div>
+
+            <div class="productControlsContainer radius25 flexRow">
+                <div class="productContainer radius25 containerBorder">
+                    <div class="productRow">Red</div>
+                    <div class="productRow">Orange</div>
+                    <div class="productRow">Green</div>
+                    <div class="productRow">Blue</div>
+                </div>
+                <div class="controlsContainer radius25 containerBorder">
+                    <div class="button" id="buttonRed"></div>
+                    <div class="button mgTop5" id="buttonOrange"></div>
+                    <div class="button mgTop5" id="buttonGreen"></div>
+                    <div class="button mgTop5" id="buttonBlue"></div>
+                    <div class="button" id="buttonRandom"></div>
+                </div>
+            </div>
+
+            <div class="dispenseContainer radius25 flexRow">
+                <div class="dispense radius25 testBorder"></div>
+                <div class="change radius25 testBorder"></div>
+            </div>
+
+        </div>
+
+        <div class="customerContainer">
+
+        </div>
+    </main>
+    <footer></footer>
+    <script src="vending.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+/* Testing CSS */
+.testBorder {
+    border: 1px solid black;
+    text-align: left;
+}
+
+.containerBorder {
+    border: 2px solid black;
+    text-align: center;
+}
+/*--------------*/
+
+
+.machineContainer {
+    background-color: gray;
+    padding: 1rem;
+    max-width: 390px;
+}
+
+.infoContainer {
+    background-color: white;
+    margin-bottom: 1rem;    
+    height: 72px;
+}
+
+.productControlsContainer {
+    margin-bottom: 1rem;
+}
+
+.productContainer {
+    background-color: white;
+    flex-basis: 80%;
+}
+
+.productRow {
+    height: 60px;
+    border-bottom: 2px solid black;
+}
+
+.controlsContainer {
+    margin-left: 1rem;
+    flex-basis: 20% - 1rem;
+}
+
+.dispenseContainer {
+    height: 72px;
+}
+
+.dispense {
+    background-color: black;
+    height: 72px;
+    flex-basis: 80%;
+}
+
+.change {
+    background-color: black;
+    height: 72px;
+    width: 48px;
+    margin-left: 1rem;
+    flex-basis: 20% - 1rem;    
+}
+
+
+/* ---SHARED--- */
+.flexRow {
+    display: flex;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.radius25 {
+    border-radius: 25px;
+}
+
+.button {
+    border-radius: 50%;
+    height: 44px;
+    width: 44px;
+}
+
+#buttonRed {
+    background-color: red;
+}
+
+#buttonOrange {
+    background-color: orange;
+}
+
+#buttonGreen {
+    background-color: green;
+}
+
+#buttonBlue {
+    background-color: blue;
+}
+
+#buttonRandom {
+    margin-top: 12px;
+    animation: blinkingBackground 5s infinite; }
+    @keyframes blinkingBackground{
+		0%		{ background-color: red; }
+		33%		{ background-color: orange;}
+		66%		{ background-color: green;}
+		100%	{ background-color: blue;}
+}
+
+.mgTop5 {
+    margin-top: 5px;
+}
