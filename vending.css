@@ -1,19 +1,14 @@
 /* Testing CSS */
-.testBorder {
-    border: 1px solid black;
-    text-align: left;
-}
-
 .containerBorder {
     border: 2px solid black;
     text-align: center;
 }
-/*--------------*/
 
-
+/* ----------Containers---------- */
 .machineContainer {
     background-color: gray;
     padding: 1rem;
+    padding-bottom: 5rem;
     max-width: 390px;
 }
 
@@ -61,7 +56,48 @@
 }
 
 
-/* ---SHARED--- */
+/* ----------CUSTOMER---------- */
+.popContainer {
+    margin-top: 2rem;
+    height: 150px;
+    flex-basis: 75%;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.moneyContainer {
+    justify-content: flex-end;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    height: 150px;
+    flex-basis: 25% - 1rem;
+    border-bottom-left-radius: 25px;
+}
+
+.nickel {
+    background-color:lightgray;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.dime {
+    background-color: lightgray;
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+}
+
+.quarter {
+    background-color: lightgray;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+}
+
+
+
+/* ----------SHARED---------- */
 .flexRow {
     display: flex;
 }
@@ -75,6 +111,7 @@
     border-radius: 25px;
 }
 
+/* ----------BUTTONS--------- */
 .button {
     border-radius: 50%;
     height: 44px;
@@ -110,3 +147,31 @@
 .mgTop5 {
     margin-top: 5px;
 }
+
+/* ----------CANS---------- */
+.can {
+    width: 28px;
+    height: 48px;
+    border-radius: 100% / 30%;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.87);
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+
+  .bgRedOpaque {background-color:red;opacity:0.6;}
+  .bgOrangeOpaque {background-color:orange;opacity:0.6;}
+  .bgGreenOpaque {background-color:green;opacity:0.6;}
+  .bgBlueOpaque {background-color:blue;opacity:0.6;}
+
+
+  #redCan1 {
+    position: relative;
+    animation-name: dispenseAnimation;
+    animation-fill-mode:forwards;
+    animation-duration: 4s;
+  }
+  
+  @keyframes dispenseAnimation {
+    0%   {top:0px;}
+    100% {top:275px;}
+  }

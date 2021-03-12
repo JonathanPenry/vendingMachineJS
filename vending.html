@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vending Machine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="vending.css">
 </head>
 
@@ -18,10 +19,38 @@
 
             <div class="productControlsContainer radius25 flexRow">
                 <div class="productContainer radius25 containerBorder">
-                    <div class="productRow">Red</div>
-                    <div class="productRow">Orange</div>
-                    <div class="productRow">Green</div>
-                    <div class="productRow">Blue</div>
+                    <div class="productRow flexRow">
+                        <div class="can bgRedOpaque" id="redCan1"></div>
+                        <div class="can bgRedOpaque" id="redCan2"></div>
+                        <div class="can bgRedOpaque" id="redCan3"></div>
+                        <div class="can bgRedOpaque" id="redCan4"></div>
+                        <div class="can bgRedOpaque" id="redCan5"></div>
+                        <div class="can bgRedOpaque" id="redCan6"></div>
+                    </div>
+                    <div class="productRow flexRow">
+                        <div class="can bgOrangeOpaque" id="orangeCan1"></div>
+                        <div class="can bgOrangeOpaque" id="orangeCan2"></div>
+                        <div class="can bgOrangeOpaque" id="orangeCan3"></div>
+                        <div class="can bgOrangeOpaque" id="orangeCan4"></div>
+                        <div class="can bgOrangeOpaque" id="orangeCan5"></div>
+                        <div class="can bgOrangeOpaque" id="orangeCan6"></div>
+                    </div>
+                    <div class="productRow flexRow">
+                        <div class="can bgGreenOpaque" id="greenCan1"></div>
+                        <div class="can bgGreenOpaque" id="greenCan2"></div>
+                        <div class="can bgGreenOpaque" id="greenCan3"></div>
+                        <div class="can bgGreenOpaque" id="greenCan4"></div>
+                        <div class="can bgGreenOpaque" id="greenCan5"></div>
+                        <div class="can bgGreenOpaque" id="greenCan6"></div>
+                    </div>
+                    <div class="productRow flexRow">
+                        <div class="can bgBlueOpaque" id="blueCan1"></div>
+                        <div class="can bgBlueOpaque" id="blueCan2"></div>
+                        <div class="can bgBlueOpaque" id="blueCan3"></div>
+                        <div class="can bgBlueOpaque" id="blueCan4"></div>
+                        <div class="can bgBlueOpaque" id="blueCan5"></div>
+                        <div class="can bgBlueOpaque" id="blueCan6"></div>
+                    </div>
                 </div>
                 <div class="controlsContainer radius25 containerBorder">
                     <div class="button" id="buttonRed"></div>
@@ -38,11 +67,19 @@
             </div>
 
         </div>
-
-        <div class="customerContainer">
-
-        </div>
     </main>
+
+    <section class="customerContainer flexRow">
+        <div class="popContainer containerBorder">
+        
+        </div>
+        <div class="moneyContainer containerBorder flexColumn">
+            <div class="nickel">5&#162;</div>
+            <div class="dime">10&#162;</div>
+            <div class="quarter">25&#162;</div>
+        </div>
+    </section>
+
     <footer></footer>
     <script src="vending.js"></script>
 </body>
