@@ -5,6 +5,10 @@
 }
 
 /* ----------Containers---------- */
+body {background-color: steelblue;}
+main {max-width: 390px;}
+section {max-width: 390px;}
+
 .machineContainer {
     background-color: gray;
     padding: 1rem;
@@ -57,19 +61,11 @@
 
 
 /* ----------CUSTOMER---------- */
-.popContainer {
-    margin-top: 2rem;
-    height: 150px;
-    flex-basis: 75%;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
 
 .moneyContainer {
     justify-content: flex-end;
     margin-top: 2rem;
-    margin-left: 1rem;
-    height: 150px;
+    height: 100px;
     flex-basis: 25% - 1rem;
     border-bottom-left-radius: 25px;
 }
@@ -156,22 +152,58 @@
     box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.87);
     margin-left: 15px;
     margin-top: 10px;
-  }
+}
 
-  .bgRedOpaque {background-color:red;opacity:0.6;}
-  .bgOrangeOpaque {background-color:orange;opacity:0.6;}
-  .bgGreenOpaque {background-color:green;opacity:0.6;}
-  .bgBlueOpaque {background-color:blue;opacity:0.6;}
+.bgRedOpaque {background-color:red;opacity:0.6;}
+.bgOrangeOpaque {background-color:orange;opacity:0.6;}
+.bgGreenOpaque {background-color:green;opacity:0.6;}
+.bgBlueOpaque {background-color:blue;opacity:0.6;}
 
 
-  #redCan1 {
+#redCan1 {
+position: relative;
+animation-name: redDispAnimation;
+animation-fill-mode:forwards;
+animation-duration: 4s;
+}
+
+@keyframes redDispAnimation {
+0%   {top:0px;}
+100% {top:275px;}
+}
+
+#orangeCan6 {
     position: relative;
-    animation-name: dispenseAnimation;
+    animation-name: orangeDispAnimation;
     animation-fill-mode:forwards;
     animation-duration: 4s;
-  }
+}
   
-  @keyframes dispenseAnimation {
+  @keyframes orangeDispAnimation {
     0%   {top:0px;}
-    100% {top:275px;}
+    100% {top:213px;}
   }
+
+  #greenCan3 {
+    position: relative;
+    animation-name: greenDispAnimation;
+    animation-fill-mode:forwards;
+    animation-duration: 4s;
+}
+  
+  @keyframes greenDispAnimation {
+    0%   {top:0px;}
+    100% {top:151px;}
+}
+
+#blueCan5 {
+    position: relative;
+    animation-name: blueDispAnimation;
+    animation-fill-mode:forwards;
+    animation-duration: 4s;
+}
+  
+  @keyframes blueDispAnimation {
+    0%   {top:0px;}
+    100% {top:89px;}
+}
