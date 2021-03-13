@@ -1,10 +1,28 @@
+/* ----- SHARED ----- */
+.flexRow {
+    display: flex;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.radius25 {
+    border-radius: 25px;
+}
+
+.mgTop5 {
+    margin-top: 5px;
+}
+
 /* Testing CSS */
 .containerBorder {
     border: 2px solid black;
     text-align: center;
 }
 
-/* ----------Containers---------- */
+
 body {background-color: steelblue;}
 main {max-width: 390px;}
 section {max-width: 390px;}
@@ -16,12 +34,28 @@ section {max-width: 390px;}
     max-width: 390px;
 }
 
+
+/* ----- INFORMATION ----- */
 .infoContainer {
     background-color: white;
     margin-bottom: 1rem;    
     height: 72px;
 }
 
+.infoRow {
+    font-size: 1.35rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+#infoRow1 {
+    font-size: 1.80rem;
+    margin-top: 2px;
+    margin-bottom: 3px;
+}
+
+
+/* ----- PRODUCT ----- */
 .productControlsContainer {
     margin-bottom: 1rem;
 }
@@ -36,6 +70,8 @@ section {max-width: 390px;}
     border-bottom: 2px solid black;
 }
 
+
+/* ----- CONTROLS ----- */
 .controlsContainer {
     margin-left: 1rem;
     flex-basis: 20% - 1rem;
@@ -59,9 +95,18 @@ section {max-width: 390px;}
     flex-basis: 20% - 1rem;    
 }
 
+.refundToken {
+    background-color:lightgray;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: 25px;
+    margin-left: 4px;
+    font-size: 1.5rem;
+}
 
-/* ----------CUSTOMER---------- */
 
+/* ----- CUSTOMER ----- */
 .moneyContainer {
     justify-content: flex-end;
     margin-top: 2rem;
@@ -75,6 +120,7 @@ section {max-width: 390px;}
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    font-size: 1.35rem;
 }
 
 .dime {
@@ -82,6 +128,7 @@ section {max-width: 390px;}
     border-radius: 50%;
     width: 33px;
     height: 33px;
+    font-size: 1.25rem;
 }
 
 .quarter {
@@ -89,23 +136,9 @@ section {max-width: 390px;}
     border-radius: 50%;
     width: 44px;
     height: 44px;
+    font-size: 1.5rem;
 }
 
-
-
-/* ----------SHARED---------- */
-.flexRow {
-    display: flex;
-}
-
-.flexColumn {
-    display: flex;
-    flex-direction: column;
-}
-
-.radius25 {
-    border-radius: 25px;
-}
 
 /* ----------BUTTONS--------- */
 .button {
@@ -140,11 +173,8 @@ section {max-width: 390px;}
 		100%	{ background-color: blue;}
 }
 
-.mgTop5 {
-    margin-top: 5px;
-}
 
-/* ----------CANS---------- */
+/* ----- CANS ----- */
 .can {
     width: 28px;
     height: 48px;
@@ -154,10 +184,10 @@ section {max-width: 390px;}
     margin-top: 10px;
 }
 
-.bgRedOpaque {background-color:red;opacity:0.6;}
-.bgOrangeOpaque {background-color:orange;opacity:0.6;}
-.bgGreenOpaque {background-color:green;opacity:0.6;}
-.bgBlueOpaque {background-color:blue;opacity:0.6;}
+.redCans {background-color:red;opacity:0.6;}
+.orangeCans {background-color:orange;opacity:0.6;}
+.greenCans {background-color:green;opacity:0.6;}
+.blueCans {background-color:blue;opacity:0.6;}
 
 
 #redCan1 {

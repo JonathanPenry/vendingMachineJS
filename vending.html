@@ -15,41 +15,44 @@
     <main>
         <div class="machineContainer radius25 containerBorder">
 
-            <div class="infoContainer radius25 containerBorder">Info Display</div>
+            <div class="infoContainer radius25 containerBorder">
+                <p class="infoRow" id="infoRow1">Row 1 test information</p>
+                <p class="infoRow" id="infoRow2">Row 2 test information</p>
+            </div>
 
             <div class="productControlsContainer radius25 flexRow">
                 <div class="productContainer radius25 containerBorder">
                     <div class="productRow flexRow">
-                        <div class="can bgRedOpaque" id="redCan1"></div>
-                        <div class="can bgRedOpaque" id="redCan2"></div>
-                        <div class="can bgRedOpaque" id="redCan3"></div>
-                        <div class="can bgRedOpaque" id="redCan4"></div>
-                        <div class="can bgRedOpaque" id="redCan5"></div>
-                        <div class="can bgRedOpaque" id="redCan6"></div>
+                        <div class="can redCans" id="redCan1"></div>
+                        <div class="can redCans" id="redCan2"></div>
+                        <div class="can redCans" id="redCan3"></div>
+                        <div class="can redCans" id="redCan4"></div>
+                        <div class="can redCans" id="redCan5"></div>
+                        <div class="can redCans" id="redCan6"></div>
                     </div>
                     <div class="productRow flexRow">
-                        <div class="can bgOrangeOpaque" id="orangeCan1"></div>
-                        <div class="can bgOrangeOpaque" id="orangeCan2"></div>
-                        <div class="can bgOrangeOpaque" id="orangeCan3"></div>
-                        <div class="can bgOrangeOpaque" id="orangeCan4"></div>
-                        <div class="can bgOrangeOpaque" id="orangeCan5"></div>
-                        <div class="can bgOrangeOpaque" id="orangeCan6"></div>
+                        <div class="can orangeCans" id="orangeCan1"></div>
+                        <div class="can orangeCans" id="orangeCan2"></div>
+                        <div class="can orangeCans" id="orangeCan3"></div>
+                        <div class="can orangeCans" id="orangeCan4"></div>
+                        <div class="can orangeCans" id="orangeCan5"></div>
+                        <div class="can orangeCans" id="orangeCan6"></div>
                     </div>
                     <div class="productRow flexRow">
-                        <div class="can bgGreenOpaque" id="greenCan1"></div>
-                        <div class="can bgGreenOpaque" id="greenCan2"></div>
-                        <div class="can bgGreenOpaque" id="greenCan3"></div>
-                        <div class="can bgGreenOpaque" id="greenCan4"></div>
-                        <div class="can bgGreenOpaque" id="greenCan5"></div>
-                        <div class="can bgGreenOpaque" id="greenCan6"></div>
+                        <div class="can greenCans" id="greenCan1"></div>
+                        <div class="can greenCans" id="greenCan2"></div>
+                        <div class="can greenCans" id="greenCan3"></div>
+                        <div class="can greenCans" id="greenCan4"></div>
+                        <div class="can greenCans" id="greenCan5"></div>
+                        <div class="can greenCans" id="greenCan6"></div>
                     </div>
                     <div class="productRow flexRow">
-                        <div class="can bgBlueOpaque" id="blueCan1"></div>
-                        <div class="can bgBlueOpaque" id="blueCan2"></div>
-                        <div class="can bgBlueOpaque" id="blueCan3"></div>
-                        <div class="can bgBlueOpaque" id="blueCan4"></div>
-                        <div class="can bgBlueOpaque" id="blueCan5"></div>
-                        <div class="can bgBlueOpaque" id="blueCan6"></div>
+                        <div class="can blueCans" id="blueCan1"></div>
+                        <div class="can blueCans" id="blueCan2"></div>
+                        <div class="can blueCans" id="blueCan3"></div>
+                        <div class="can blueCans" id="blueCan4"></div>
+                        <div class="can blueCans" id="blueCan5"></div>
+                        <div class="can blueCans" id="blueCan6"></div>
                     </div>
                 </div>
                 <div class="controlsContainer radius25 containerBorder">
@@ -63,7 +66,9 @@
 
             <div class="dispenseContainer radius25 flexRow">
                 <div class="dispense radius25 testBorder"></div>
-                <div class="change radius25 testBorder"></div>
+                <div class="change radius25 testBorder">
+                    <div class="coin refundToken" id="refundToken">&#162;</div>
+                </div>
             </div>
 
         </div>
@@ -71,9 +76,9 @@
 
     <section class="customerContainer">
         <div class="moneyContainer containerBorder flexRow">
-            <div class="nickel">5&#162;</div>
-            <div class="dime">10&#162;</div>
-            <div class="quarter">25&#162;</div>
+            <div class="coin nickel" data-value="5">5&#162;</div>
+            <div class="coin dime" value="10">10&#162;</div>
+            <div class="coin quarter" value="25">25&#162;</div>
         </div>
     </section>
 
