@@ -193,19 +193,19 @@ section {max-width: 390px;}
 .blueCans {background-color:blue;opacity:0.6;}
 
 
-#redCan1 {
-position: relative;
-animation-name: redDispAnimation;
-animation-fill-mode:forwards;
-animation-duration: 4s;
+.redCanAnimate {
+    position: relative;
+    animation-name: redDispAnimation;
+    animation-fill-mode:forwards;
+    animation-duration: 4s;
 }
 
 @keyframes redDispAnimation {
 0%   {top:0px;}
-100% {top:275px;}
+100% {top:275px;opacity:1;}
 }
 
-#orangeCan6 {
+.orangeCanAnimate {
     position: relative;
     animation-name: orangeDispAnimation;
     animation-fill-mode:forwards;
@@ -214,10 +214,10 @@ animation-duration: 4s;
   
   @keyframes orangeDispAnimation {
     0%   {top:0px;}
-    100% {top:213px;}
+    100% {top:213px;opacity:1;}
   }
 
-  #greenCan3 {
+.greenCanAnimate {
     position: relative;
     animation-name: greenDispAnimation;
     animation-fill-mode:forwards;
@@ -226,10 +226,25 @@ animation-duration: 4s;
   
   @keyframes greenDispAnimation {
     0%   {top:0px;}
-    100% {top:151px;}
+    100% {top:151px;opacity:1;}
 }
 
-#blueCan5 {
+
+.blueCanAnimate {
+    position: relative;
+    animation-name: blueDispAnimation;
+    animation-fill-mode:forwards;
+    animation-duration: 4s;
+}
+  
+  @keyframes blueDispAnimation {
+    0%   {top:0px;}
+    100% {top:89px;opacity:1;}
+}
+
+
+/* ORIGINAL ANIMATION TESTING */
+/* #blueCan5 {
     position: relative;
     animation-name: blueDispAnimation;
     animation-fill-mode:forwards;
@@ -239,4 +254,4 @@ animation-duration: 4s;
   @keyframes blueDispAnimation {
     0%   {top:0px;}
     100% {top:89px;}
-}
+} */

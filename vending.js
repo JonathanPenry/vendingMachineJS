@@ -1,10 +1,11 @@
-// "use strict";
+"use strict";
 
 // GRAB EVERYTHING THAT NEEDS EVENT LISTENERS //
-// const buttonRed = document.getElementById("buttonRed");
-// const buttonOrange = document.getElementById("buttonOrange");
-// const buttonGreen = document.getElementById("buttonGreen");
-// const buttonBlue = document.getElementById("buttonBlue");
+const buttonRed = document.getElementById("buttonRed");
+const buttonOrange = document.getElementById("buttonOrange");
+const buttonGreen = document.getElementById("buttonGreen");
+const buttonBlue = document.getElementById("buttonBlue");
+
 const infoRow1 = document.getElementById("infoRow1");
 const infoRow2 = document.getElementById("infoRow2");
 
@@ -40,27 +41,25 @@ const nickel = document.getElementsByClassName("nickel");
 
 let totalValue = 0;
 let inserted = 0;
-// Determine location on the dispenser
-// const dispenser = document.getElementById("dispenser");
-// var rect = dispenser.getBoundingClientRect();
-// alert("Coordinates: " + rect.left + "px, " + rect.top + "px");
+let valueNeeded = 0;
+let changeRefund = 0;
 
 
-// ADD Event Listeners to buttons, cans, customer money, refund change, 
-document.querySelectorAll('.button').forEach(button => {
-  button.addEventListener('click', (e) => {
-    console.log(e.target.id);
-  })
-})
+/////////////////////
+// EVENT LISTENERS //
+///////////////////// 
+// document.querySelectorAll('.button').forEach(button => {
+//   button.addEventListener('click', (e) => {
+//     console.log(e.target.id);
+//   })
+// })
 
-
-document.querySelectorAll('.can').forEach(can => {
-  can.addEventListener('click', (e) => {
-    console.log(e.target.id);
-    can.classList.add('invisible');                 // Theft problem!
-  })
-})
-
+// document.querySelectorAll('.can').forEach(can => {
+//   can.addEventListener('click', (e) => {
+//     console.log(e.target.id);
+//     can.classList.add('invisible');                 // Theft problem!
+//   })
+// })
 
 document.querySelectorAll('#refundToken').forEach(refundToken => {
   refundToken.addEventListener('click', (e) => {
@@ -69,22 +68,29 @@ document.querySelectorAll('#refundToken').forEach(refundToken => {
   })
 })
 
-
 document.querySelectorAll('.coin').forEach(coin => {
   coin.addEventListener('click', (e) => {
     console.log(parseInt(e.target.innerHTML));
-    let inserted = (parseInt(e.target.innerHTML)); 
-    coinTotal(inserted); 
+    let inserted = (parseInt(e.target.innerHTML));
+    coinTotal(inserted);
   })
 })
 
 
+///////////////
+// FUNCTIONS //
+///////////////
+function machineReset() {
+  // Wait a certain amount of time
+  infoRow1.innerText = `Welcome`
+  infoRow2.innerText = `All beverages are $1.65`
+  // 
+  // CoinTotal() totalValue reset to 0
+}
+machineReset();
 
 
-
-
-// FUNCTION Coins added to the machine //
-function coinTotal (inserted) {
+function coinTotal(inserted) {
   console.log(inserted);
   totalValue = totalValue + inserted;
   console.log(totalValue);
@@ -94,9 +100,9 @@ function coinTotal (inserted) {
   if (totalValue < 165) {
     infoRow1.innerText = `Additional coins needed`;
     infoRow2.innerText = `Please insert an additional ${valueNeeded}\u00a2`;
-  } 
+  }
   if (totalValue == 165) {
-    infoRow1.innerText = `Thank you`;
+    infoRow1.innerText = `Correct change of ${totalValue}\u00a2`;
     infoRow2.innerText = `Please select a flavor`;
     dispense();
     // return;    // Not sure if this is necessary
@@ -110,22 +116,55 @@ function coinTotal (inserted) {
 }
 
 
-// FUNCTION Dispense can to customer //
-function dispense () {}
-      // If YES
-          // Display info line 1 says thank you message
-          // Determine how much change should be given
-          // Display info line 2 tells the change amount
-          // Refund coin appears
-          // Can dispensed with animation based on which color button they pressed
-          // Reset function valueInserted to 0
+function dispense() {
+  //Click button to select flavor
+  document.querySelectorAll('.button').forEach(button => {
+    button.addEventListener('click', (e) => {
+      console.log(e.target.id);
+      let choice = e.target.id;
+      console.log(choice);
+        switch (choice) {
+          case 'buttonRed':
+            redCan1.classList.add('redCanAnimate');
+            break;
+          case 'buttonOrange':
+            orangeCan3.classList.add('orangeCanAnimate');
+            break;
+          case 'buttonGreen':
+            greenCan4.classList.add('greenCanAnimate')
+            break;
+          case 'buttonBlue':
+            blueCan6.classList.add('blueCanAnimate');
+            break;
+          case 'buttonRandom':
+            // Need to somehow randomly choose one of the previous;
+            break;
+        }
+      })
+
+  })
+  // NON WORKING CODE //
+  // if (e.target.id = buttonRed) {redCan1.classList.add('redCanAnimate')}
+  // if (e.target.id = buttonOrange) {orangeCan3.classList.add('orangeCanAnimate')}
+  // if (e.target.id = buttonGreen) {greenCan4.classList.add('greenCanAnimate')}
+  // if (e.target.id = buttonBlue) {blueCan6.classList.add('blueCanAnimate')}
+  // else {console.log("???")};
+
+  // Dispense animation of that flavor
+  // Random color can if they choose the random button
+
+  //Moving the event listener inside this funciton protects cans from theft!
+  document.querySelectorAll('.can').forEach(can => {
+    can.addEventListener('click', (e) => {
+      console.log(e.target.id);
+      // can.classList.add('invisible');
+    })
+  })
+  // IF (totalValue == 165)
+  // Display info line 2 says please take your beverage
+  // IF (totalValue > 165)
+  // Display info line 2 says please take beverage and change of XXX
+  // Refund coin appears
+
   // machineReset();
-  
-
-
-// FUNCTION Dispense can to customer //
-function machineReset () {}
-  // Wait a certain amount of time
-      // Reset info display to greeting message
-          // Price $1.65
-      // 
+}
