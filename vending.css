@@ -34,6 +34,9 @@ section {max-width: 390px;}
     max-width: 390px;
 }
 
+.invisible {
+    visibility: hidden;
+}
 
 /* ----- INFORMATION ----- */
 .infoContainer {
