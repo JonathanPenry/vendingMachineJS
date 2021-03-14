@@ -48,6 +48,20 @@ let changeRefund = 0;
 /////////////////////
 // EVENT LISTENERS //
 ///////////////////// 
+document.querySelectorAll('.coin').forEach(coin => {
+  coin.addEventListener('click', (e) => {
+    console.log(parseInt(e.target.innerHTML));
+    let inserted = (parseInt(e.target.innerHTML));
+    coinTotal(inserted);
+  })
+})
+
+document.querySelectorAll('#refundToken').forEach(refundToken => {
+  refundToken.addEventListener('click', (e) => {
+    // console.log(e.target.id);
+    refundToken.classList.add('invisible');
+  })
+})
 // document.querySelectorAll('.button').forEach(button => {
 //   button.addEventListener('click', (e) => {
 //     console.log(e.target.id);
@@ -61,33 +75,18 @@ let changeRefund = 0;
 //   })
 // })
 
-document.querySelectorAll('#refundToken').forEach(refundToken => {
-  refundToken.addEventListener('click', (e) => {
-    console.log(e.target.id);
-    refundToken.classList.add('invisible');
-  })
-})
 
-document.querySelectorAll('.coin').forEach(coin => {
-  coin.addEventListener('click', (e) => {
-    console.log(parseInt(e.target.innerHTML));
-    let inserted = (parseInt(e.target.innerHTML));
-    coinTotal(inserted);
-  })
-})
 
 
 ///////////////
 // FUNCTIONS //
 ///////////////
+machineReset();
 function machineReset() {
   // Wait a certain amount of time
   infoRow1.innerText = `Welcome`
   infoRow2.innerText = `All beverages are $1.65`
-  // 
-  // CoinTotal() totalValue reset to 0
 }
-machineReset();
 
 
 function coinTotal(inserted) {
@@ -111,60 +110,59 @@ function coinTotal(inserted) {
     infoRow1.innerText = `Overpayment of ${changeRefund}\u00a2!`;
     infoRow2.innerText = `Please select a flavor`;
     dispense();
-    // return;    // Not sure if this is necessary
   }
+  return;    // Not sure if this is necessary
 }
+
+
 
 
 function dispense() {
-  //Click button to select flavor
-  document.querySelectorAll('.button').forEach(button => {
-    button.addEventListener('click', (e) => {
-      console.log(e.target.id);
-      let choice = e.target.id;
-      console.log(choice);
-        switch (choice) {
-          case 'buttonRed':
-            redCan1.classList.add('redCanAnimate');
-            break;
-          case 'buttonOrange':
-            orangeCan3.classList.add('orangeCanAnimate');
-            break;
-          case 'buttonGreen':
-            greenCan4.classList.add('greenCanAnimate')
-            break;
-          case 'buttonBlue':
-            blueCan6.classList.add('blueCanAnimate');
-            break;
-          case 'buttonRandom':
-            // Need to somehow randomly choose one of the previous;
-            break;
-        }
-      })
+  // Refund change appears if too many coins inserted
+  if (totalValue > 165) {
+    refundToken.classList.remove('invisible');
+  }
 
-  })
-  // NON WORKING CODE //
-  // if (e.target.id = buttonRed) {redCan1.classList.add('redCanAnimate')}
-  // if (e.target.id = buttonOrange) {orangeCan3.classList.add('orangeCanAnimate')}
-  // if (e.target.id = buttonGreen) {greenCan4.classList.add('greenCanAnimate')}
-  // if (e.target.id = buttonBlue) {blueCan6.classList.add('blueCanAnimate')}
-  // else {console.log("???")};
-
-  // Dispense animation of that flavor
-  // Random color can if they choose the random button
-
-  //Moving the event listener inside this funciton protects cans from theft!
+  //Moving the event listener inside this funciton to prevent user clicks (theft)
   document.querySelectorAll('.can').forEach(can => {
     can.addEventListener('click', (e) => {
       console.log(e.target.id);
-      // can.classList.add('invisible');
+      can.classList.add('invisible');
     })
   })
-  // IF (totalValue == 165)
-  // Display info line 2 says please take your beverage
-  // IF (totalValue > 165)
-  // Display info line 2 says please take beverage and change of XXX
-  // Refund coin appears
 
-  // machineReset();
+  //Click button to select flavor
+  document.querySelectorAll('.button').forEach(button => {
+    button.addEventListener('click', function listener(e) {
+      console.log(e.target.id);
+      let choice = e.target.id;
+      console.log(choice);
+
+      switch (choice) {
+        case 'buttonRed':
+          redCan1.classList.add('redCanAnimate');
+          totalValue = 0;
+          machineReset();
+          break;
+        case 'buttonOrange':
+          orangeCan3.classList.add('orangeCanAnimate');
+          machineReset();
+          totalValue = 0;
+          break;
+        case 'buttonGreen':
+          greenCan4.classList.add('greenCanAnimate');
+          machineReset();
+          totalValue = 0;
+          break;
+        case 'buttonBlue':
+          blueCan6.classList.add('blueCanAnimate');
+          machineReset();
+          totalValue = 0;
+          break;
+      }
+      document.querySelectorAll('.button').forEach(buttons => { buttons.removeEventListener("click", listener) });
+      return;
+    })
+  })
 }
+
