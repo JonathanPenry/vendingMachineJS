@@ -1,4 +1,6 @@
-/* ----- SHARED ----- */
+/* //////////////////// */
+/* // SHARED STYLING // */
+/* //////////////////// */
 .flexRow {
     display: flex;
 }
@@ -16,33 +18,44 @@
     margin-top: 5px;
 }
 
-/* Testing CSS */
+.textCenter {
+    text-align: center;
+}
+
 .containerBorder {
     border: 2px solid black;
     text-align: center;
 }
 
+body {
+    background-color: steelblue;}
 
-body {background-color: steelblue;}
-main {max-width: 390px;}
-section {max-width: 390px;}
+section {
+    width: 150px;
+}
 
 .machineContainer {
     background-color: gray;
     padding: 1rem;
     padding-bottom: 5rem;
-    max-width: 390px;
+    width: 360px;
+    /* max-width: 390px; */
+    /* min-width: 396px; */
 }
 
 .invisible {
     visibility: hidden;
 }
 
-/* ----- INFORMATION ----- */
+
+/* ///////////////// */
+/* // INFORMATION // */
+/* ///////////////// */
 .infoContainer {
     background-color: white;
     margin-bottom: 1rem;    
     height: 72px;
+    max-width: 360px;
 }
 
 .infoRow {
@@ -58,29 +71,50 @@ section {max-width: 390px;}
 }
 
 
-/* ----- PRODUCT ----- */
+/* ///////////// */
+/* // PRODUCT // */
+/* ///////////// */
 .productControlsContainer {
     margin-bottom: 1rem;
 }
 
 .productContainer {
     background-color: white;
+    max-width: 360px;
     flex-basis: 80%;
 }
 
 .productRow {
     height: 60px;
+    min-width: 288px;
     border-bottom: 2px solid black;
 }
 
+.can {
+    width: 28px;
+    height: 48px;
+    border-radius: 100% / 30%;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.87);
+    margin-left: 15px;
+    margin-top: 10px;
+}
 
-/* ----- CONTROLS ----- */
+.redCans {background-color:red;opacity:0.6;}
+.orangeCans {background-color:orange;opacity:0.6;}
+.greenCans {background-color:green;opacity:0.6;}
+.blueCans {background-color:blue;opacity:0.6;}
+
+
+/* ////////////// */
+/* // CONTROLS // */
+/* ////////////// */
 .controlsContainer {
     margin-left: 1rem;
     flex-basis: 20% - 1rem;
 }
 
 .dispenseContainer {
+    max-width: 360px;
     height: 72px;
 }
 
@@ -109,12 +143,15 @@ section {max-width: 390px;}
 }
 
 
-/* ----- CUSTOMER ----- */
+/* ////////////// */
+/* // CUSTOMER // */
+/* ////////////// */
 .moneyContainer {
-    justify-content: flex-end;
+    justify-content: space-around;
     margin-top: 2rem;
     height: 100px;
     flex-basis: 25% - 1rem;
+    align-items: baseline;
     border-bottom-left-radius: 25px;
 }
 
@@ -124,6 +161,7 @@ section {max-width: 390px;}
     width: 40px;
     height: 40px;
     font-size: 1.35rem;
+    border: 2px solid black;
 }
 
 .dime {
@@ -132,6 +170,7 @@ section {max-width: 390px;}
     width: 33px;
     height: 33px;
     font-size: 1.25rem;
+    border: 2px solid black;
 }
 
 .quarter {
@@ -140,10 +179,13 @@ section {max-width: 390px;}
     width: 44px;
     height: 44px;
     font-size: 1.5rem;
+    border: 2px solid black;
 }
 
 
-/* ----------BUTTONS--------- */
+/* ///////////// */
+/* // BUTTONS // */
+/* ///////////// */
 .button {
     border-radius: 50%;
     height: 44px;
@@ -183,22 +225,9 @@ section {max-width: 390px;}
 }
 
 
-/* ----- CANS ----- */
-.can {
-    width: 28px;
-    height: 48px;
-    border-radius: 100% / 30%;
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.87);
-    margin-left: 15px;
-    margin-top: 10px;
-}
-
-.redCans {background-color:red;opacity:0.6;}
-.orangeCans {background-color:orange;opacity:0.6;}
-.greenCans {background-color:green;opacity:0.6;}
-.blueCans {background-color:blue;opacity:0.6;}
-
-
+/* //////////////// */
+/* // ANIMATIONS // */
+/* //////////////// */
 .redCanAnimate {
     position: relative;
     animation-name: redDispAnimation;
@@ -249,15 +278,29 @@ section {max-width: 390px;}
 }
 
 
-/* ORIGINAL ANIMATION TESTING */
-/* #blueCan5 {
-    position: relative;
-    animation-name: blueDispAnimation;
-    animation-fill-mode:forwards;
-    animation-duration: 4s;
+/* /////////////////// */
+/* // MEDIA QUERIES // */
+/* /////////////////// */
+@media only screen and (min-width: 675px) {
+    /* html {margin: auto;} */
+    body {
+        display: flex;
+    }
+
+    .machineContainer {
+        margin-top: 1rem;
+        margin-right: 2rem;
+    }
+
+    .customerContainer {
+        margin-top: 250px;
+    }
+
+    .moneyContainer {
+        height: 150px;
+    }
+
+    #customerMoney {
+        flex-direction: column;
+    }
 }
-  
-  @keyframes blueDispAnimation {
-    0%   {top:0px;}
-    100% {top:89px;}
-} */

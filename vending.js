@@ -4,43 +4,25 @@
 // COLLECT EVERYTHING BY ID //
 //////////////////////////////
 // May not ending up needing these at all...
+const infoRow1 = document.getElementById("infoRow1");
+const infoRow2 = document.getElementById("infoRow2");
+
 const buttonRed = document.getElementById("buttonRed");
 const buttonOrange = document.getElementById("buttonOrange");
 const buttonGreen = document.getElementById("buttonGreen");
 const buttonBlue = document.getElementById("buttonBlue");
 
-const infoRow1 = document.getElementById("infoRow1");
-const infoRow2 = document.getElementById("infoRow2");
+let redCans = document.querySelectorAll(".redCans");
+let activeRedCan = 0;
 
-const redCan1 = document.getElementById("redCan1");
-const redCan2 = document.getElementById("redCan2");
-const redCan3 = document.getElementById("redCan3");
-const redCan4 = document.getElementById("redCan4");
-const redCan5 = document.getElementById("redCan5");
-const redCan6 = document.getElementById("redCan6");
+let orangeCans = document.querySelectorAll(".orangeCans");
+let activeOrangeCan = 0;
 
-const orangeCan1 = document.getElementById("orangeCan1");
-const orangeCan2 = document.getElementById("orangeCan2");
-const orangeCan3 = document.getElementById("orangeCan3");
-const orangeCan4 = document.getElementById("orangeCan4");
-const orangeCan5 = document.getElementById("orangeCan5");
-const orangeCan6 = document.getElementById("orangeCan6");
+let greenCans = document.querySelectorAll(".greenCans");
+let activeGreenCan = 0;
 
-const greenCan1 = document.getElementById("greenCan1");
-const greenCan2 = document.getElementById("greenCan2");
-const greenCan3 = document.getElementById("greenCan3");
-const greenCan4 = document.getElementById("greenCan4");
-const greenCan5 = document.getElementById("greenCan5");
-const greenCan6 = document.getElementById("greenCan6");
-
-const blueCan1 = document.getElementById("blueCan1");
-const blueCan2 = document.getElementById("blueCan2");
-const blueCan3 = document.getElementById("blueCan3");
-const blueCan4 = document.getElementById("blueCan4");
-const blueCan5 = document.getElementById("blueCan5");
-const blueCan6 = document.getElementById("blueCan6");
-
-const nickel = document.getElementsByClassName("nickel");
+let blueCans = document.querySelectorAll(".blueCans");
+let activeBlueCan = 0;
 
 let totalValue = 0;
 let inserted = 0;
@@ -52,8 +34,8 @@ let changeRefund = 0;
 // EVENT LISTENERS //
 ///////////////////// 
 // These clicks can be done by the user at any time.
-// Select buttons & cans event listerns moved inside
-// to prevent user clicks until conditions are met.
+// Select buttons & cans event listerns were moved inside the
+// dispense() to prevent user clicks until conditions are met.
 document.querySelectorAll('.coin').forEach(coin => {
   coin.addEventListener('click', (e) => {
     console.log(parseInt(e.target.innerHTML));
@@ -72,12 +54,12 @@ document.querySelectorAll('#refundToken').forEach(refundToken => {
 ///////////////////
 // Machine Reset //
 ///////////////////
-machineReset(inserted);
 function machineReset(inserted) {
   infoRow1.innerText = `Welcome`
   infoRow2.innerText = `All beverages are $1.65`
   return inserted;
 }
+machineReset(inserted);
 
 
 ///////////////////////////////
@@ -102,6 +84,7 @@ function coinTotal(inserted) {
   if (totalValue > 165) {
     infoRow1.innerText = `Overpayment of ${changeRefund}\u00a2!`;
     infoRow2.innerText = `Please select a flavor`;
+    refundToken.classList.remove('invisible');
     dispense();
   }
 
@@ -112,12 +95,7 @@ function coinTotal(inserted) {
 // Dispense //
 //////////////
 function dispense() {
-  // Refund coin appears if too many coins inserted
-  if (totalValue > 165) {
-    refundToken.classList.remove('invisible');
-  }
-
-  // Moved the cans event listeners inside this function to prevent early user clicks (theft)
+  // Moved the cans event listeners inside this function to prevent early user clicks (theft!)
   document.querySelectorAll('.can').forEach(can => {
     can.addEventListener('click', (e) => {
       console.log(e.target.id);
@@ -137,32 +115,48 @@ function dispense() {
   function dispenseSwitch(choice, listener) {
     switch (choice) {
       case 'buttonRed':
-        redCan1.classList.add('redCanAnimate');
-        machineReset();
+        redCans[activeRedCan].classList.add('redCanAnimate');
+        activeRedCan++;
         totalValue = 0;
+        changeRefund = 0;
+        valueNeeded = 0;
+        inserted = 0;
+        machineReset(totalValue);
         removeEventListeners(listener);
         break;
       case 'buttonOrange':
-        orangeCan3.classList.add('orangeCanAnimate');
-        machineReset();
+        orangeCans[activeOrangeCan].classList.add('orangeCanAnimate');
+        activeOrangeCan++;
         totalValue = 0;
+        changeRefund = 0;
+        valueNeeded = 0;
+        inserted = 0;
+        machineReset(totalValue);
         removeEventListeners(listener);
         break;
       case 'buttonGreen':
-        greenCan4.classList.add('greenCanAnimate');
-        machineReset();
+        greenCans[activeGreenCan].classList.add('greenCanAnimate');
+        activeGreenCan++;
         totalValue = 0;
+        changeRefund = 0;
+        valueNeeded = 0;
+        inserted = 0;
+        machineReset(totalValue);
         removeEventListeners(listener);
         break;
       case 'buttonBlue':
-        blueCan6.classList.add('blueCanAnimate');
-        machineReset();
+        blueCans[activeBlueCan].classList.add('blueCanAnimate');
+        activeBlueCan++;
         totalValue = 0;
+        changeRefund = 0;
+        valueNeeded = 0;
+        inserted = 0;
+        machineReset(totalValue);
         removeEventListeners(listener);
         break;
     }
 
-    // Remove event listeners for buttons once a can has been dispensed to prevent additional dispensing
+    // Remove event listeners for all buttons once a can has been dispensed to prevent additional dispensing
     function removeEventListeners(listener) {
       document.querySelectorAll('.button').forEach(buttons => { buttons.removeEventListener("click", listener) });
       return;
