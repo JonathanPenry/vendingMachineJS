@@ -14,15 +14,21 @@ const buttonBlue = document.getElementById("buttonBlue");
 
 let redCans = document.querySelectorAll(".redCans");
 let activeRedCan = 0;
-
 let orangeCans = document.querySelectorAll(".orangeCans");
 let activeOrangeCan = 0;
-
 let greenCans = document.querySelectorAll(".greenCans");
 let activeGreenCan = 0;
-
 let blueCans = document.querySelectorAll(".blueCans");
 let activeBlueCan = 0;
+
+// let activeCans = {
+//   red: 0,
+//   orange: 0,
+//   green: 0,
+//   blue: 0
+// }
+// Should allow you to write
+// activeCans[choice]++; instead of activeBlueCan++
 
 let totalValue = 0;
 let inserted = 0;
@@ -30,12 +36,11 @@ let valueNeeded = 0;
 let changeRefund = 0;
 
 
-/////////////////////
-// EVENT LISTENERS //
-///////////////////// 
-// These clicks can be done by the user at any time.
-// Select buttons & cans event listerns were moved inside the
-// dispense() to prevent user clicks until conditions are met.
+machineReset();
+
+//////////////////////////
+// COIN EVENT LISTENERS //
+//////////////////////////
 document.querySelectorAll('.coin').forEach(coin => {
   coin.addEventListener('click', (e) => {
     console.log(parseInt(e.target.innerHTML));
@@ -54,17 +59,20 @@ document.querySelectorAll('#refundToken').forEach(refundToken => {
 ///////////////////
 // Machine Reset //
 ///////////////////
-function machineReset(inserted) {
+function machineReset() {
   infoRow1.innerText = `Welcome`
   infoRow2.innerText = `All beverages are $1.65`
-  return inserted;
+  totalValue = 0;
+  changeRefund = 0;
+  valueNeeded = 0;
+  inserted = 0;
 }
-machineReset(inserted);
 
 
 ///////////////////////////////
 // COINS INSERTED & MESSAGES //
 ///////////////////////////////
+// Inserted is passed from coin event listeners
 function coinTotal(inserted) {
   console.log(inserted);
   totalValue = totalValue + inserted;
@@ -95,15 +103,7 @@ function coinTotal(inserted) {
 // Dispense //
 //////////////
 function dispense() {
-  // Moved the cans event listeners inside this function to prevent early user clicks (theft!)
-  document.querySelectorAll('.can').forEach(can => {
-    can.addEventListener('click', (e) => {
-      console.log(e.target.id);
-      can.classList.add('invisible');
-    })
-  })
 
-  // Moved the buttons event listeners inside function to prevent user clicks until coin expectation met
   document.querySelectorAll('.button').forEach(button => {
     button.addEventListener('click', function listener(e) {
       let choice = e.target.id;
@@ -115,52 +115,71 @@ function dispense() {
   function dispenseSwitch(choice, listener) {
     switch (choice) {
       case 'buttonRed':
+        if (totalValue >= 165){
         redCans[activeRedCan].classList.add('redCanAnimate');
         activeRedCan++;
-        totalValue = 0;
-        changeRefund = 0;
-        valueNeeded = 0;
-        inserted = 0;
-        machineReset(totalValue);
-        removeEventListeners(listener);
+        document.querySelectorAll('.redCanAnimate').forEach(can => {
+          can.addEventListener('click', (e) =>{
+            can.classList.add('invisible');
+          })
+        })
+        }
         break;
       case 'buttonOrange':
+        if (totalValue >= 165){
         orangeCans[activeOrangeCan].classList.add('orangeCanAnimate');
         activeOrangeCan++;
-        totalValue = 0;
-        changeRefund = 0;
-        valueNeeded = 0;
-        inserted = 0;
-        machineReset(totalValue);
-        removeEventListeners(listener);
+        document.querySelectorAll('.orangeCanAnimate').forEach(can => {
+          can.addEventListener('click', (e) =>{
+            can.classList.add('invisible');
+          })
+        })
+        }
         break;
       case 'buttonGreen':
+        if (totalValue >= 165){
         greenCans[activeGreenCan].classList.add('greenCanAnimate');
         activeGreenCan++;
-        totalValue = 0;
-        changeRefund = 0;
-        valueNeeded = 0;
-        inserted = 0;
-        machineReset(totalValue);
-        removeEventListeners(listener);
+        document.querySelectorAll('.greenCanAnimate').forEach(can => {
+          can.addEventListener('click', (e) =>{
+            can.classList.add('invisible');
+          })
+        })
+        }
         break;
       case 'buttonBlue':
+        if (totalValue >= 165){
         blueCans[activeBlueCan].classList.add('blueCanAnimate');
         activeBlueCan++;
-        totalValue = 0;
-        changeRefund = 0;
-        valueNeeded = 0;
-        inserted = 0;
-        machineReset(totalValue);
-        removeEventListeners(listener);
+        document.querySelectorAll('.blueCanAnimate').forEach(can => {
+          can.addEventListener('click', (e) =>{
+            can.classList.add('invisible');
+          })
+        })
+        }
         break;
     }
 
-    // Remove event listeners for all buttons once a can has been dispensed to prevent additional dispensing
-    function removeEventListeners(listener) {
-      document.querySelectorAll('.button').forEach(buttons => { buttons.removeEventListener("click", listener) });
-      return;
-    }
+    machineReset();
+    removeEventListeners(listener);
+  }
+  // Remove event listeners for all buttons once a can has been dispensed to prevent additional dispensing
+  function removeEventListeners(listener) {
+    document.querySelectorAll('.button').forEach(buttons => { buttons.removeEventListener("click", listener) });
+    return;
   }
 }
 
+
+
+// ORIGINAL SWITCH CASE EXAMPLE //
+// case 'buttonBlue':
+//   blueCans[activeBlueCan].classList.add('blueCanAnimate');
+//   activeBlueCan++;
+//   // totalValue = 0;
+//   // changeRefund = 0;
+//   // valueNeeded = 0;
+//   // inserted = 0;
+//   machineReset();//totalValue);
+//   removeEventListeners(listener);
+//   break;
